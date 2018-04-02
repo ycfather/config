@@ -11,16 +11,17 @@
 (global-linum-mode 1)
 (setq linum-format "%4d \u2502 ")
 
+;;set font family 
+;;(set-default-font "monokai-14")
+
 (require 'package)
     (add-to-list 'package-archives
                  '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(elpy-enable)
-
-;;(load-theme 'solarized-dark t)
-(load-theme 'monokai t)
-;;(load-theme 'material t)
+;; (load-theme 'monokai t)
+(load-theme 'atom-one-dark t)
+;; (load-theme 'solarized-light t)
 
 (add-hook 'go-mode-hook
           (lambda ()
@@ -31,11 +32,15 @@
             (setq tab-width 4)
             (setq indent-tabs-mode nil)))
 
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'go-mode-hook
-          (lambda ()
-            (set (make-local-variable 'company-backends) '(company-go))
-            (company-mode)))
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; (add-hook 'go-mode-hook 'company-mode)
+;; (add-hook 'go-mode-hook
+;;          (lambda ()
+;;            (set (make-local-variable 'company-backends) '(company-go))
+;;            (company-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -44,7 +49,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (async git-commit magit-popup with-editor magit find-file-in-project highlight-indentation ivy pyvenv s yasnippet elpy json-snatcher json-mode json-reformat protobuf-mode markdown-mode company dash nginx-mode yaml-mode company-go go-mode solarized-theme monokai-theme molokai-theme lua-mode))))
+    (solarized-theme atom-one-dark-theme auto-complete go-autocomplete auctex lua-mode python-mode protobuf-mode yasnippet json-mode vue-html-mode vue-mode nginx-mode go-mode monokai-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
