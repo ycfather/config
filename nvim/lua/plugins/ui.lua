@@ -127,13 +127,19 @@ return {
     main = "ibl",
     event = { "BufReadPost", "BufNewFile" },
     opts = function()
+      local ibl   = require("ibl")
+      local hooks = require("ibl.hooks")
+
       -- 1) 定义多层级颜色（可按主题喜好调整）
       local colors = { "#E06C75", "#E5C07B", "#98C379", "#61AFEF", "#C678DD", "#56B6C2" }
-      for i, c in ipairs(colors) do
-        vim.api.nvim_set_hl(0, "IndentLevel" .. i, { fg = c, nocombine = true })
-      end
-      -- 当前作用域线颜色（更柔和一点）
-      vim.api.nvim_set_hl(0, "IndentScope", { fg = "#7f8490", nocombine = true })
+      
+      -- 在每次 colorscheme 之后重新定义高亮组
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        for i, c in ipairs(colors) do
+          vim.api.nvim_set_hl(0, "IndentLevel"..i, { fg = c, nocombine = true })
+        end
+        vim.api.nvim_set_hl(0, "IndentScope", { fg = "#7f8490", nocombine = true })
+      end)
 
       -- 2) 返回 ibl 配置
       return {
