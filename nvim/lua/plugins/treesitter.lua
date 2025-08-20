@@ -9,6 +9,7 @@ return {
         "bash", "python", "javascript", "typescript",
         "json", "yaml", "toml",
         "markdown", "markdown_inline", "rust",
+	"go","gomod","gowork","gosum","gotmpl",
       },
       highlight = { enable = true },
       indent = { enable = true },
