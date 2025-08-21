@@ -118,3 +118,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
     desc = "Go to last location when opening a buffer",
 })
+
