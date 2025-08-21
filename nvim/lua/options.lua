@@ -1,10 +1,10 @@
 local opt = vim.opt
 
 -- 行号与光标
-opt.number = true              -- 绝对行号
-opt.relativenumber = true      -- 相对行号
-opt.cursorline = true          -- 高亮当前行
-opt.signcolumn = "yes"         -- 永远显示诊断标记栏
+opt.number = true         -- 绝对行号
+opt.relativenumber = true -- 相对行号
+opt.cursorline = true     -- 高亮当前行
+opt.signcolumn = "yes"    -- 永远显示诊断标记栏
 
 -- 颜色与渲染
 opt.termguicolors = true
@@ -19,9 +19,8 @@ opt.splitbelow = true
 opt.updatetime = 300
 
 -- Tab / 缩进设置（默认 4 空格）
-vim.opt.tabstop = 4       -- 一个 Tab 显示为 4 个空格
-vim.opt.shiftwidth = 4    -- 缩进操作使用 4 个空格
-vim.opt.softtabstop = 4   -- 插入模式 Tab = 4 空格
-vim.opt.expandtab = true  -- Tab 转为空格
-vim.opt.smartindent = true -- 智能缩进
-
+opt.tabstop = 4        -- 一个 Tab 显示为 4 个空格
+opt.shiftwidth = 4     -- 缩进操作使用 4 个空格
+opt.softtabstop = 4    -- 插入模式 Tab = 4 空格
+opt.expandtab = true   -- Tab 转为空格
+opt.smartindent = true -- 智能缩进

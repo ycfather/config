@@ -19,21 +19,21 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File Explorer" })
 
 -- UI 切换
 map("n", "<leader>ut", function() -- 切换浅/深色主题
-  local current = vim.o.background
-  vim.o.background = (current == "dark") and "light" or "dark"
-  vim.notify("Background -> " .. vim.o.background)
+    local current = vim.o.background
+    vim.o.background = (current == "dark") and "light" or "dark"
+    vim.notify("Background -> " .. vim.o.background)
 end, { desc = "Toggle Theme Light/Dark" })
 
 -- 依赖已安装的 toggleterm
 local ok, Terminal = pcall(function() return require("toggleterm.terminal").Terminal end)
 if ok then
-  local function term_cmd(cmd)
-    return function()
-      Terminal:new({ cmd = cmd, direction = "float", close_on_exit = false }):toggle()
+    local function term_cmd(cmd)
+        return function()
+            Terminal:new({ cmd = cmd, direction = "float", close_on_exit = false }):toggle()
+        end
     end
-  end
-  vim.keymap.set("n","<leader>rb", term_cmd("cargo build"), { desc = "Cargo Build" })
-  vim.keymap.set("n","<leader>rr", term_cmd("cargo run"),   { desc = "Cargo Run" })
-  vim.keymap.set("n","<leader>rt", term_cmd("cargo test"),  { desc = "Cargo Test" })
+    vim.keymap.set("n","<leader>rb", term_cmd("cargo build"), { desc = "Cargo Build" })
+    vim.keymap.set("n","<leader>rr", term_cmd("cargo run"),   { desc = "Cargo Run" })
+    vim.keymap.set("n","<leader>rt", term_cmd("cargo test"),  { desc = "Cargo Test" })
 end
 
